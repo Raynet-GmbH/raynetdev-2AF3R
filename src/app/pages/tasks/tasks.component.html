@@ -29,16 +29,6 @@
     [hidingPriority]="6">
   </dxi-column>
   <dxi-column
-    dataField="Task_Priority"
-    caption="Priority"
-    [hidingPriority]="5">
-    <dxo-lookup
-      [dataSource]="priority"
-      valueExpr="value"
-      displayExpr="name">
-    </dxo-lookup>
-  </dxi-column>
-  <dxi-column
     dataField="ResponsibleEmployee.Employee_Full_Name"
     caption="Assigned To"
     [allowSorting]="false"

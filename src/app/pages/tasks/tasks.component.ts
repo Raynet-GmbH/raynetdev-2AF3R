@@ -1,14 +1,14 @@
-import { Component } from '@angular/core';
+import { Component,OnInit  } from '@angular/core';
 import 'devextreme/data/odata/store';
 
 @Component({
   templateUrl: 'tasks.component.html'
 })
 
-export class TasksComponent {
+export class TasksComponent implements OnInit {
   dataSource: any;
   priority: any[] = [];
-
+  focusedRowIndex: number = 0;
   constructor() {
     this.dataSource = {
       store: {
@@ -34,5 +34,11 @@ export class TasksComponent {
       { name: 'Normal', value: 2 },
       { name: 'Low', value: 1 }
     ];
+    this.priority = priority;
+  }
+  ngOnInit(): void {
+    this.dataSource.store.load().then((data: any[]) => {
+      this.focusedRowIndex = 0;  
+    });
   }
 }
