@@ -70,7 +70,7 @@ export class CreateAccountFormComponent {
   }
 
   validatePhoneNumber(phoneNumber: string): boolean {
-    console.log
+    console.log(this.countryCodes+phoneNumber)
     const phoneRegex = /(([+][(]?[0-9]{1,3}[)]?)|([(]?[0-9]{4}[)]?))\s*[)]?[-\s\.]?[(]?[0-9]{1,3}[)]?([-\s\.]?[0-9]{3})([-\s\.]?[0-9]{3,4})/; 
     return phoneRegex.test(this.countryCodes+phoneNumber);
   }

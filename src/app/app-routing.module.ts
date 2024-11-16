@@ -18,6 +18,8 @@ const routes: Routes = [
     component: ProfileComponent,
     canActivate: [ AuthGuardService ]
   },
+  //todo Lazy Loading Create Feature Modules like ProfileModule give extra performance 
+  // { path: 'profile', loadChildren: () => import('./pages/profile/profile.module').then(m => m.ProfileModule) },
   {
     path: 'home',
     component: HomeComponent,
