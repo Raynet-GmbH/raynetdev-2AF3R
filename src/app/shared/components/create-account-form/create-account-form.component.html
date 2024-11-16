@@ -1,39 +1,68 @@
 <form class="create-account-form" (submit)="onSubmit($event)">
   <dx-form [formData]="formData" [disabled]="loading">
 
+    <!-- Email -->
     <dxi-item dataField="email" editorType="dxTextBox"
       [editorOptions]="{ stylingMode: 'filled', placeholder: 'Email', mode: 'email' }">
       <dxo-label [visible]="false"></dxo-label>
     </dxi-item>
 
+    <!-- Password -->
     <dxi-item dataField="password" editorType="dxTextBox"
       [editorOptions]="{ stylingMode: 'filled', placeholder: 'Password', mode: 'password' }">
       <dxo-label [visible]="false"></dxo-label>
     </dxi-item>
 
+    <!-- Confirm Password -->
     <dxi-item dataField="confirmedPassword" editorType="dxTextBox"
       [editorOptions]="{ stylingMode: 'filled', placeholder: 'Confirm Password', mode: 'password' }">
       <dxo-label [visible]="false"></dxo-label>
     </dxi-item>
 
+    <!-- Display Name -->
+    <dxi-item dataField="displayName" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Display Name' }">
+      <dxo-label [visible]="false"></dxo-label>
+    </dxi-item>
+    <!-- Country Code -->
     <dxi-item>
-      <div class='policy-info'>
+      <dx-select-box [dataSource]="countryCodes"
+                     placeholder="Country Code"
+                     valueExpr="value"
+                     displayExpr="label"
+                     [(value)]="formData.countryCode"
+                     [stylingMode]="'filled'">
+      </dx-select-box>
+    </dxi-item>
+
+    <!-- Phone Number -->
+    <dxi-item dataField="phoneNumber" editorType="dxTextBox"
+      [editorOptions]="{ stylingMode: 'filled', placeholder: 'Phone Number', mode: 'tel' }">
+      <dxo-label [visible]="false"></dxo-label>
+    </dxi-item>
+
+    <!-- Policy Info -->
+    <dxi-item>
+      <div class="policy-info">
         By creating an account, you agree to the <a routerLink="#">Terms of Service</a> and <a routerLink="#">Privacy
           Policy</a>
       </div>
     </dxi-item>
 
+    <!-- Submit Button -->
     <dxi-item itemType="button">
       <dxo-button-options width="100%" type="default" [useSubmitBehavior]="true" [template]="'createAccountTemplate'">
       </dxo-button-options>
     </dxi-item>
 
+    <!-- Login Link -->
     <dxi-item>
       <div class="login-link">
         Have an account? <a routerLink="/login">Sign In</a>
       </div>
     </dxi-item>
 
+    <!-- Button Template -->
     <ng-container *dxTemplate="let item of 'createAccountTemplate'">
       <div>
         <span class="dx-button-text">
